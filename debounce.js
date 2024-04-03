@@ -2,10 +2,11 @@ function debounce(fn, delay) {
   let timeID = null;
 
   return function (...args) {
+    let context = this;
     clearTimeout(timeID);
 
     timeID = setTimeout(() => {
-      fn(...args);
+      fn.apply(context, args);
     }, delay);
   };
 }
