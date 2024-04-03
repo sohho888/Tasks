@@ -1,9 +1,3 @@
-let i = 0;
-function increment() {
-  console.log(i++);
-}
-
-
 function debounce(fn, delay) {
   let timeID = null;
 
@@ -16,6 +10,4 @@ function debounce(fn, delay) {
   };
 }
 
-const updateDebouce = debounce(increment, 1000);
-
-updateDebouce()
+module.exports = { debounce };
