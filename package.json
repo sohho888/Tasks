@@ -1,9 +1,9 @@
 {
   "name": "tasks",
   "version": "1.0.0",
-  "description": "",
   "scripts": {
-    "test": "npx vitest"
+    "test": "npx vitest",
+    "dev": "vite"
   },
   "repository": {
     "type": "git",
@@ -17,5 +17,8 @@
   "homepage": "https://github.com/sohho888/tasks#readme",
   "dependencies": {
     "vitest": "^1.4.0"
-  }
+  },
+  "main": "debounce.js",
+  "devDependencies": {},
+  "description": ""
 }
