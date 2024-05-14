@@ -1,19 +1,43 @@
-export function render(markdown) {
-  let result = [];
+const markdown = {
+  type: 'document',
+  content: [
+    {
+      type: 'heading',
+      content: ['Hello, World!'],
+    },
+    {
+      type: 'paragraph',
+      content: [
+        'hello, ',
+        {
+          type: 'bold',
+          content: ['world!'],
+        },
+      ],
+    },
+  ],
+};
 
-  if (typeof markdown === "string") {
+export function render(markdown) {
+  if (typeof markdown === 'string') {
     return markdown;
   }
 
   let child = markdown.content.map(render);
-  console.log(child);
 
-  if (markdown.type === "document") {
-    return child.join("") + "\n\n";
+  if (markdown.type === 'paragraph') {
+    return child.join('') + '\n\n';
   }
 
-  if (markdown.type === "paragraph") {
-    return child.join("") + "\n\n";
+  if (markdown.type === 'heading') {
+    return child.join('#');
   }
-  return child;
+
+  if (markdown.type === 'bold') {
+    return child.join('**');
+  }
+
+  if (markdown.type === 'italic') {
+    return child.join('_');
+  }
 }
