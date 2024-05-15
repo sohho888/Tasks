@@ -40,6 +40,13 @@ describe('render', () => {
       {
         input: {
           type: 'document',
+          content: [{ type: 'heading', content: ['hello'] }],
+        },
+        output: '# hello\n',
+      },
+      {
+        input: {
+          type: 'document',
           content: [
             {
               type: 'paragraph',
