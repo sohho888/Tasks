@@ -45,3 +45,9 @@ $ git push origin branch-name
 ```
 
 Once you pushed your branch to GitHub, you can go to GitHub main page and check the green button on top. It should appear once a new branch got detected by GitHub. Click the button and then create a new pull request.
+
+## Make the code consistent
+
+```
+$ npm run format
+```
