@@ -3,27 +3,25 @@ export function render(markdown) {
     return markdown;
   }
 
-  let child = markdown.content.map(render);
+  let child = markdown.content.map(render).join('');
 
   if (markdown.type === 'document') {
-    return child.join('');
+    return child;
   }
 
-  for (let i = 0; i <= child.length; i++) {
-    if (markdown.type === 'paragraph') {
-      return child.join('') + '\n';
-    }
+  if (markdown.type === 'paragraph') {
+    return child + '\n';
+  }
 
-    if (markdown.type === 'heading') {
-      return child.join('#');
-    }
+  if (markdown.type === 'heading') {
+    return '#'.child + ' ' + child;
+  }
 
-    if (markdown.type === 'bold') {
-      return child.join('**');
-    }
+  if (markdown.type === 'bold') {
+    return '**' + child + '**';
+  }
 
-    if (markdown.type === 'italic') {
-      return child.join('_');
-    }
+  if (markdown.type === 'italic') {
+    return '_' + child + '_';
   }
 }
