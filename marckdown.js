@@ -32,7 +32,7 @@ export function render(markdown) {
   }
 
   if (markdown.type === 'paragraph') {
-    return child.join('') + '\n\n';
+    return child.join('') + '\n';
   }
 
   if (markdown.type === 'heading') {
