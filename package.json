@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "test": "npx vitest",
+    "check-codestyle": "npx prettier *.js -c",
     "format": "npx prettier *.js -w"
   },
   "repository": {
