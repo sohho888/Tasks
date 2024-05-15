@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "test": "npx vitest",
-    "dev": "vite"
+    "format": "npx prettier *.js -w"
   },
   "repository": {
     "type": "git",
@@ -16,9 +16,8 @@
   },
   "homepage": "https://github.com/sohho888/tasks#readme",
   "dependencies": {
+    "prettier": "^3.2.5",
     "vitest": "^1.4.0"
   },
-  "main": "debounce.js",
-  "devDependencies": {},
   "description": ""
 }
