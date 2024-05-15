@@ -19,11 +19,17 @@ const markdown = {
 };
 
 export function render(markdown) {
+  let result = [];
+
   if (typeof markdown === 'string') {
     return markdown;
   }
 
   let child = markdown.content.map(render);
+
+  if (markdown.type === 'document') {
+    return child.join('');
+  }
 
   if (markdown.type === 'paragraph') {
     return child.join('') + '\n\n';
@@ -40,4 +46,6 @@ export function render(markdown) {
   if (markdown.type === 'italic') {
     return child.join('_');
   }
+
+  return markdown;
 }
