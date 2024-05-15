@@ -15,14 +15,22 @@ where `branch-name` is the task, e.g. `markdown` , `event-emitter` , etc
 Please, commit your progress regularly. Remember about atomic commits!
 
 ```
+$ git status
+```
+
+Check what's changed and make sure it's what you want, then add to stage:
+
+```
+$ git add .
+```
+
+Then commit.
+
+```
 $ git commit -m "first implementation"
 ```
 
-Once you fix a test, I wouldn't mind a commit too:
-
-```
-$ git commit -m "fixed first test"
-```
+Once you make a fix and even one test becomes green, I wouldn't mind a commit too (go back to the beginning of this section, rinse and repeat). Remember that the git history will help you not only track the progress but also go back in time if you mess up the code, and want to just check out to the previous working state.
 
 ## How to run tests
 
