@@ -3,7 +3,7 @@ export function render(markdown) {
     return markdown;
   }
 
-  let child = markdown.content.map(render).join("");
+  const child = markdown.content.map(render).join("");
 
   if (markdown.type === "document") {
     return child;
@@ -24,4 +24,5 @@ export function render(markdown) {
   if (markdown.type === "italic") {
     return "_" + child + "_";
   }
+  throw new Error("Unexpected node type");
 }
