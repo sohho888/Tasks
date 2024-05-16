@@ -14,11 +14,7 @@ export function render(markdown) {
   }
 
   if (markdown.type === "heading") {
-    return (
-      "# " +
-      child +
-      (markdown.content.some((item) => item.type !== "heading") ? "\n\n" : "")
-    );
+    return "# " + child + "\n"
   }
 
   if (markdown.type === "bold") {
