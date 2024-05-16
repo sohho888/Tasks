@@ -1,19 +1,28 @@
 export function render(markdown) {
-  let result = [];
-
   if (typeof markdown === "string") {
     return markdown;
   }
 
-  let child = markdown.content.map(render);
-  console.log(child);
+  const child = markdown.content.map(render).join("");
 
   if (markdown.type === "document") {
-    return child.join("") + "\n\n";
+    return child;
   }
 
   if (markdown.type === "paragraph") {
-    return child.join("") + "\n\n";
+    return child + "\n";
   }
-  return child;
+
+  if (markdown.type === "heading") {
+    return "# " + child + "\n";
+  }
+
+  if (markdown.type === "bold") {
+    return "**" + child + "**";
+  }
+
+  if (markdown.type === "italic") {
+    return "_" + child + "_";
+  }
+  throw new Error("Unexpected node type");
 }
