@@ -114,7 +114,7 @@ describe("render", () => {
           ],
         },
         output:
-          "# First section\n\nI am content, can be **bold** or _italic_.\n# Second section\n\nI'm a simple text, nothing special\nYet another paragraph\n",
+          "# First section\nI am content, can be **bold** or _italic_.\n# Second section\nI'm a simple text, nothing special\nYet another paragraph\n",
       },
     ].filter((_, idx) =>
       includeOnly.length === 0 ? true : includeOnly.includes(idx + 1),
