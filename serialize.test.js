@@ -1,13 +1,18 @@
 import { describe, test, expect } from "vitest";
+import { serialize, deserialize } from "./serialize";
 
 const includeOnly = [];
 
-// TODO: import these functions from serialize.js
-function serialize() {}
-function deserialize() {}
-
 const tests = [
   { input: { value: 100 }, output: "100,null,null" },
+  {
+    input: { value: 100, left: { value: 80 } },
+    output: "100,80,null,null,null",
+  },
+  {
+    input: { value: 100, right: { value: 120 } },
+    output: "100,null,120,null,null",
+  },
   {
     input: { value: 100, left: { value: 80, right: { value: 90 } } },
     output: "100,80,null,90,null,null,null",
