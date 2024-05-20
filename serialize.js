@@ -1,18 +1,7 @@
-let result = {};
 export function serialize(node) {
-  if (node === null) {
-    return result.stringify(node);
-  }
+  const { value, left, right } = node;
 
-  while (node) {
-    if (node.left < node) {
-      serialize(node.left);
-    } else {
-      if (node.right > node) {
-        serialize(node.right);
-      }
-    }
-  }
+  return `${node.value},${node.left ?? null},${node.right ?? null}`;
 }
 
 export function deserialize() {}
