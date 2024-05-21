@@ -8,4 +8,25 @@ export function serialize(node) {
   return `${value},${serialize(left)},${serialize(right)}`;
 }
 
-export function deserialize() {}
+export function deserialize(str) {
+  const nodes = str.split(",");
+
+  function buildTree() {
+    if (nodes.length === 0) {
+      return null;
+    }
+    const value = nodes.shift();
+
+    if (value === "null") {
+      return null;
+    }
+    const node = {
+      value: parseInt(value, 10),
+      left: deserialize(),
+      right: deserialize(),
+    };
+    return node;
+  }
+
+  return buildTree();
+}
