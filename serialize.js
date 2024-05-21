@@ -1,6 +1,6 @@
 export function serialize(node) {
   if (node === undefined || node === null) {
-    return 'null';
+    return "null";
   }
 
   const { value, left, right } = node;
