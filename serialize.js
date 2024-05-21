@@ -1,7 +1,11 @@
 export function serialize(node) {
+  if (node === undefined || node === null) {
+    return 'null';
+  }
+
   const { value, left, right } = node;
 
-  return `${node.value},${node.left ?? null},${node.right ?? null}`;
+  return `${value},${serialize(left)},${serialize(right)}`;
 }
 
 export function deserialize() {}
