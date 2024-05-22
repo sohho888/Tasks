@@ -14,16 +14,15 @@ export function deserialize(str) {
   function buildTree() {
     if (nodes.length === 0) {
       return null;
+      const value = nodes.shift();
     }
-    const value = nodes.shift();
-
     if (value === "null") {
       return null;
     }
     const node = {
       value: parseInt(value, 10),
-      left: deserialize(),
-      right: deserialize(),
+      left: buildTree(),
+      right: buildTree(),
     };
     return node;
   }
