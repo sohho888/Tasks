@@ -1,6 +1,6 @@
 export function serialize(node) {
   if (node === undefined || node === null) {
-    return "null";
+    return 'null';
   }
 
   const { value, left, right } = node;
@@ -9,14 +9,15 @@ export function serialize(node) {
 }
 
 export function deserialize(str) {
-  const nodes = str.split(",");
+  const nodes = str.split(',');
 
   function buildTree() {
     if (nodes.length === 0) {
       return null;
-      const value = nodes.shift();
     }
-    if (value === "null") {
+    const value = nodes.shift();
+
+    if (value === 'null') {
       return null;
     }
     const node = {
