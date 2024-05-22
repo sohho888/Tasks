@@ -18,12 +18,13 @@ export function deserialize(str) {
     const value = nodes.shift();
 
     if (value === "null") {
-      return null;
+      return;
     }
+
     const node = {
-      value: parseInt(value, 10),
       left: buildTree(),
       right: buildTree(),
+      value: parseInt(value, 10),
     };
     return node;
   }
