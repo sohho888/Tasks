@@ -42,4 +42,8 @@ describe("deserialize", () => {
   test.each(tests)("%#", ({ input, output }) => {
     expect(deserialize(output)).toEqual(input);
   });
+
+  test('bad format', () => {
+    expect(() => deserialize('100,80,null')).toThrowError('bad format');
+  })
 });
