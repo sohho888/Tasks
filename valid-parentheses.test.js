@@ -9,6 +9,7 @@ const tests = [
   { input: "(]", output: false },
   { input: "([)]", output: false },
   { input: "{[()]}", output: true },
+  { input: "{{{", output: false },
 ].filter((_, idx) =>
   includeOnly.length === 0 ? true : includeOnly.includes(idx + 1),
 );
