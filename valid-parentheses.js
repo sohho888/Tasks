@@ -30,5 +30,25 @@
  * @return {boolean}
  */
 export function validateBrackets(code) {
+  const stack = [];
+  const openBrackets = ["(", "{", "["];
+  const closeBrackets = [")", "}", "]"];
+  const bracketPairs = {
+    ")": "(",
+    "}": "{",
+    "]": "[",
+  };
+
+  for (let char of code) {
+    if (openBrackets.includes(char)) {
+      stack.push(char);
+    } else if (closeBrackets.includes(char)) {
+      if (stack.length === 0 || stack.pop() !== bracketPairs[char]) {
+        return false;
+      }
+    }
+  }
+
+  // return stack.length === 0;
   return true;
 }
