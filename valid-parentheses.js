@@ -49,6 +49,5 @@ export function validateBrackets(code) {
     }
   }
 
-  // return stack.length === 0;
-  return true;
+  return stack.length === 0;
 }
