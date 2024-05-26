@@ -1,4 +1,10 @@
-function insertingString(str) {
+/**
+ * Takes a string, returns true of false
+ * https://rune-taurus-c3a.notion.site/Mock-Interview-dd069edb04204237af06fd7467f509aa
+ * @param {string} str
+ * @returns boolean
+ */
+export function insertingString(str) {
   if (str == "") {
     return "abc";
   }
