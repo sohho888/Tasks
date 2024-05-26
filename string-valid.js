@@ -1,10 +1,10 @@
 function insertingString(str) {
-  if (str == '') {
-    return 'abc';
+  if (str == "") {
+    return "abc";
   }
 
-  let strSplit = str.split('');
-  let subStrings = '';
+  let strSplit = str.split("");
+  let subStrings = "";
 
   if (strSplit.length > 2) {
     for (let i = 0; i < strSplit.length; i++) {
@@ -12,9 +12,9 @@ function insertingString(str) {
 
       subStrings += strSplit[i];
 
-      if (subString === 'abc') {
+      if (subString === "abc") {
         strSplit.splice([i], 3);
-        return insertingString(strSplit.join(''));
+        return insertingString(strSplit.join(""));
       }
     }
     return true;
