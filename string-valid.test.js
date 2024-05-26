@@ -5,6 +5,8 @@ const includeOnly = [];
 
 const tests = [
   { input: "", output: true },
+  { input: "a", output: false },
+  { input: "ab", output: false },
   { input: "abc", output: true },
   { input: "aabcbc", output: true },
   { input: "aabcbabcc", output: true },
