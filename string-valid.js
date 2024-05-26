@@ -11,18 +11,12 @@ export function insertingString(str) {
 
   let strSplit = str.split("");
 
-  if (strSplit.length) {
-    for (let i = 0; i < strSplit.length; i++) {
-      let subString = strSplit[i] + strSplit[i + 1] + strSplit[i + 2];
+  for (let i = 0; i < strSplit.length; i++) {
+    let subString = strSplit[i] + strSplit[i + 1] + strSplit[i + 2];
 
-      if (strSplit.length <= 2) {
-        return false;
-      }
-
-      if (subString === "abc") {
-        strSplit.splice(i, 3);
-        return insertingString(strSplit.join(""));
-      }
+    if (subString === "abc") {
+      strSplit.splice(i, 3);
+      return insertingString(strSplit.join(""));
     }
   }
   return false;
