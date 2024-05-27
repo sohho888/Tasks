@@ -80,7 +80,7 @@ describe("EventEmitter", () => {
     expect(listener).toHaveBeenCalledTimes(1);
   });
 
-  it('should not break if the listener throws', () => {
+  it("should not break if the listener throws", () => {
     const emitter = new EventEmitter();
     const listener = vi.fn();
     emitter.on("event", () => 1 / 0);
