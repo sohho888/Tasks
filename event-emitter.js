@@ -12,7 +12,9 @@ class EventEmitter {
 
   off(event, listener) {
     if (!this.events[event]) return;
-    this.events[event] = this.events[event].filter((subscriber) => subscriber !== listener);
+    this.events[event] = this.events[event].filter(
+      (subscriber) => subscriber !== listener,
+    );
   }
 
   once(event, listener) {
