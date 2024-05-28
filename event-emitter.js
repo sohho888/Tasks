@@ -12,9 +12,7 @@ class EventEmitter {
 
   off(event, listener) {
     if (!this.events[event]) return;
-    this.events[event] = this.events[event].filter(
-      (subscriber) => subscriber !== listener,
-    );
+    this.events[event] = this.events[event].filter((subscriber) => subscriber !== listener);
   }
 
   once(event, listener) {
@@ -27,8 +25,13 @@ class EventEmitter {
 
   emit(event, ...args) {
     if (!this.events[event]) return;
+
     this.events[event].forEach((listener) => {
-      listener(...args);
+      try {
+        listener(...args);
+      } catch (error) {
+        console.error(`Error in listener for event "${event}":`, error);
+      }
     });
   }
 }
