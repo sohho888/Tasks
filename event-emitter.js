@@ -3,44 +3,39 @@ class EventEmitter {
     this.events = {};
   }
 
-  addEventListener(eventName, func) {
-    if (typeof func !== "function") {
-      throw new Error("This is not a function");
+  on(event, listener) {
+    if (!this.events[event]) {
+      this.events[event] = [];
     }
-    if (!this.events[eventName]) {
-      this.events[eventName] = [];
-    }
-    this.events[eventName].push(func);
+    this.events[event].push(listener);
   }
 
-  removeEventListener(eventName, func) {
-    if (!events[eventName])
-      throw new Error("there is no such event in the system");
+  off(event, listener) {
+    if (!this.events[event]) return;
+    this.events[event] = this.events[event].filter(
+      (subscriber) => subscriber !== listener,
+    );
+  }
 
-    this.events[eventName].filter((somethingFunc) => {
-      somethingFunc !== func;
+  once(event, listener) {
+    const onceListener = (...args) => {
+      listener(...args);
+      this.off(event, onceListener);
+    };
+    this.on(event, onceListener);
+  }
+
+  emit(event, ...args) {
+    if (!this.events[event]) return;
+
+    this.events[event].forEach((listener) => {
+      try {
+        listener(...args);
+      } catch (error) {
+        console.error(`Error in listener for event "${event}":`, error);
+      }
     });
   }
-
-  on(eventName, func) {
-    this.addEventListener(eventName, func);
-  }
-
-  off(eventName, func) {
-    this.removeEventListener(eventName, func);
-  }
-
-  once(eventName, func) {
-    const wrapper = () => {
-      func();
-      this.removeEventListener(eventName, func);
-    };
-    this.on(eventName, wrapper);
-  }
-
-  emit(eventName, data) {
-    if (this.events[eventName]) {
-      this.events[eventName].forEach((func) => func.call(null, data));
-    }
-  }
 }
+
+export default EventEmitter;
