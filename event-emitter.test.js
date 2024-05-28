@@ -72,8 +72,11 @@ describe("EventEmitter", () => {
   it("should not break if the listener throws", () => {
     const emitter = new EventEmitter();
     const listener = vi.fn();
-    emitter.on("event", () => 1 / 0);
+    emitter.on("event", () => {
+      throw new Error("test");
+    });
     emitter.on("event", listener);
+    emitter.emit("event");
     expect(listener).toHaveBeenCalledTimes(1);
   });
 });
